@@ -1,0 +1,355 @@
+---
+
+### **1. Encabezado del documento (`<head>`):**
+- **Propósito:** Contiene metadatos sobre la página web y enlaces a recursos externos.
+- **Elementos importantes:**
+  - `<meta charset="UTF-8">`: Define el estándar de codificación como UTF-8, permitiendo caracteres como tildes y ñ.
+  - `<meta name="viewport" content="width=device-width, initial-scale=1.0">`: Hace que la página sea responsive, adaptándose a dispositivos móviles.
+  - `<meta name="description" content="Hotel Mi Cerro - Tu destino de paz y comodidad.">`: Proporciona una descripción para los motores de búsqueda (SEO).
+  - `<link href="styles.css" rel="stylesheet" type="text/css">`: Conecta la página a un archivo CSS externo llamado `styles.css` para los estilos.
+  - `<link rel="icon" href="favicon.ico" type="image/x-icon">`: Define el ícono que aparece en la pestaña del navegador.
+  - `<title>Hotel Mi Cerro</title>`: Establece el título de la página que aparece en la pestaña del navegador.
+
+---
+
+### **2. Cuerpo del documento (`<body>`):**
+#### **A. Encabezado y menú de navegación (`<header>`):**
+- **Propósito:** Muestra el nombre del hotel y el menú de navegación.
+- **Elementos:**
+  - `<h1>Hotel Mi Cerro</h1>`: Título principal.
+  - `<nav>`: Contiene una lista de enlaces internos para navegar por la página.
+    - Cada enlace usa el atributo `href` para vincular a secciones específicas de la página (por ejemplo, `#inicio`).
+
+---
+
+#### **B. Sección de Bienvenida (`<section id="inicio">`):**
+- **Propósito:** Introduce a los usuarios a las instalaciones del hotel.
+- **Elementos:**
+  - `<h2>Nuestras Instalaciones</h2>`: Subtítulo de la sección.
+  - `<p>`: Párrafo descriptivo sobre las vistas y la experiencia en el hotel.
+
+---
+
+#### **C. Sección de Servicios (`<section id="servicios">`):**
+- **Propósito:** Describe los servicios ofrecidos por el hotel.
+- **Elementos:**
+  - `<h2>Servicios</h2>`: Subtítulo de la sección.
+  - `<ul>`: Lista desordenada que detalla los servicios disponibles, como habitaciones de lujo, termales y restaurante.
+
+---
+
+#### **D. Sección de Galería (`<section id="galeria">`):**
+- **Propósito:** Muestra imágenes de las instalaciones del hotel.
+- **Elementos:**
+  - `<h2>Galería</h2>`: Subtítulo de la sección.
+  - `<div class="galeria">`: Contenedor para los elementos de la galería.
+    - Cada `<div class="galeria-objeto">` contiene:
+      - Una descripción (`<p>`).
+      - Una imagen (`<img>`), con atributos `src` (ruta de la imagen), `alt` (texto alternativo) y `width` (ancho en píxeles).
+
+---
+
+#### **E. Sección de Precios (`<section id="precios">`):**
+- **Propósito:** Informa sobre los costos de las habitaciones.
+- **Elementos:**
+  - `<h2>Precios</h2>`: Subtítulo de la sección.
+  - `<ul>`: Lista desordenada que muestra los diferentes precios según el tipo de habitación.
+
+---
+
+#### **F. Sección de Contacto (`<section id="contacto">`):**
+- **Propósito:** Proporciona información para que los usuarios puedan contactar al hotel.
+- **Elementos:**
+  - `<h2>Contacto</h2>`: Subtítulo de la sección.
+  - `<p>`: Texto explicativo y detalles como:
+    - **Correo:** Enlace `mailto:` para enviar correos electrónicos.
+    - **Teléfono:** Enlace `tel:` para realizar llamadas desde dispositivos móviles.
+    - **Dirección:** Dirección física del hotel.
+
+---
+
+#### **G. Pie de página (`<footer>`):**
+- **Propósito:** Muestra información de derechos de autor y enlaces a redes sociales.
+- **Elementos:**
+  - `<p>&copy; 2024 Hotel Mi Cerro. Todos los derechos reservados.</p>`: Texto de derechos de autor.
+  - Enlaces a redes sociales con atributo `target="_blank"` para abrirlos en una nueva pestaña.
+
+---
+
+### **3. JavaScript (`<script>`):**
+- **Propósito:** Añade funcionalidad de desplazamiento suave al hacer clic en los enlaces del menú de navegación.
+- **Código:**
+  ```javascript
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth'
+          });
+      });
+  });
+  ```
+  - **Cómo funciona:**
+    - Selecciona todos los enlaces internos (`a[href^="#"]`).
+    - Agrega un evento `click` que previene el comportamiento predeterminado del navegador.
+    - Usa `scrollIntoView` con el atributo `behavior: 'smooth'` para un desplazamiento suave.
+
+---
+
+### **Notas adicionales:**
+- **Accesibilidad:** Usar textos alternativos (`alt`) en las imágenes mejora la accesibilidad y SEO.
+- **Consistencia:** Los nombres de ID y rutas de archivos deben ser consistentes y evitar espacios.
+- **Estilos externos:** El archivo `styles.css` controla el diseño, y puedes personalizarlo según sea necesario.
+
+### **Documentación del Código HTML y CSS**
+
+---
+
+### **1. Código HTML: Tabla de precios**
+#### **Propósito:**  
+Muestra una tabla con información detallada sobre los precios de las habitaciones disponibles en el hotel.  
+
+#### **Estructura del Código:**  
+```html
+<h1>Precios de Habitaciones</h1>
+<table class="tabla-precios">
+    <thead>
+        <tr>
+            <th>Tipo de Habitación</th>
+            <th>Número de Personas</th>
+            <th>Precio por Noche</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Habitación Individual</td>
+            <td>1</td>
+            <td>$50</td>
+        </tr>
+        <tr>
+            <td>Habitación Doble</td>
+            <td>2</td>
+            <td>$90</td>
+        </tr>
+        <tr>
+            <td>Habitación Familiar</td>
+            <td>4</td>
+            <td>$150</td>
+        </tr>
+        <tr>
+            <td>Suite</td>
+            <td>2</td>
+            <td>$200</td>
+        </tr>
+    </tbody>
+</table>
+```
+
+------------------------------bitacora 2------------------------------------
+(añadidura de tabla)
+
+#### **Detalles de la Estructura HTML:**
+
+1. **`<h1>`: Título principal**
+   - Representa el encabezado principal de la sección: "Precios de Habitaciones".
+
+2. **`<table class="tabla-precios">`: Inicio de la tabla**
+   - Se usa para organizar la información en formato tabular.
+   - Atributo `class="tabla-precios"`: Se asocia con estilos CSS personalizados.
+
+3. **`<thead>`: Encabezado de la tabla**
+   - Contiene una fila (`<tr>`) con las columnas principales:
+     - **`<th>`**: Define las cabeceras de las columnas:
+       - "Tipo de Habitación".
+       - "Número de Personas".
+       - "Precio por Noche".
+
+4. **`<tbody>`: Contenido de la tabla**
+   - Contiene varias filas (`<tr>`), cada una representando un tipo de habitación.
+   - **`<td>`**: Define las celdas dentro de cada fila:
+     - Ejemplo: "Habitación Individual", "1 persona", "$50".
+
+---
+
+### **2. Código CSS: Estilización de la tabla**
+#### **Propósito:**  
+Define la apariencia visual de la tabla, mejorando la legibilidad y usabilidad para los usuarios.
+
+#### **Código CSS:**
+```css
+.tabla-precios {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+.tabla-precios th, .tabla-precios td {
+    border: 1px solid #b0b0b0;
+    padding: 10px;
+    text-align: center;
+}
+.tabla-precios th {
+    background-color: #004a8f;
+    color: #ffffff;
+}
+.tabla-precios tr:nth-child(even) {
+    background-color: #eaf4ff;
+}
+.tabla-precios tr:hover {
+    background-color: #d1e7ff;
+}
+```
+
+---
+
+#### **Detalles de los estilos:**
+
+1. **`.tabla-precios`: Tabla general**
+   - **`width: 80%;`**: La tabla ocupa el 80% del ancho del contenedor.
+   - **`margin: 0 auto;`**: Centra la tabla horizontalmente en la página.
+   - **`border-collapse: collapse;`**: Elimina los espacios entre las celdas.
+   - **`background-color: #ffffff;`**: Fondo blanco para la tabla.
+
+2. **`.tabla-precios th, .tabla-precios td`: Celdas de la tabla**
+   - **`border: 1px solid #b0b0b0;`**: Bordes grises entre las celdas.
+   - **`padding: 10px;`**: Espaciado interno en cada celda.
+   - **`text-align: center;`**: Centra el texto horizontalmente.
+
+3. **`.tabla-precios th`: Encabezados de la tabla**
+   - **`background-color: #004a8f;`**: Fondo azul oscuro para los encabezados.
+   - **`color: #ffffff;`**: Texto blanco en los encabezados.
+
+4. **`.tabla-precios tr:nth-child(even)`: Fila alterna**
+   - **`background-color: #eaf4ff;`**: Fondo azul claro para las filas pares.
+
+5. **`.tabla-precios tr:hover`: Efecto al pasar el ratón**
+   - **`background-color: #d1e7ff;`**: Cambia el color de fondo cuando el usuario pasa el cursor sobre una fila.
+
+---
+
+### **3. Relación entre HTML y CSS**
+- **Conexión:**  
+  El atributo `class="tabla-precios"` en la etiqueta `<table>` enlaza la estructura HTML con los estilos definidos en el archivo CSS. Cada regla de estilo se aplica a los elementos de la tabla según sus selectores (`.tabla-precios`, `.tabla-precios th`, etc.).
+
+---
+
+### **4. Resultados Visuales:**
+- **Apariencia:**  
+  - Tabla centrada en la página.
+  - Encabezados destacados con fondo azul oscuro y texto blanco.
+  - Filas alternas con fondo azul claro para facilitar la lectura.
+  - Bordes visibles que delimitan las celdas.
+  - Efecto "hover" que resalta la fila sobre la que se pasa el cursor.
+
+---
+
+### **5. Ventajas del diseño:**
+- **Legibilidad:** Colores alternos y alineación central facilitan la lectura.
+- **Interactividad:** El efecto "hover" mejora la experiencia del usuario.
+- **Responsividad:** El ancho del 80% permite que la tabla se adapte a diferentes tamaños de pantalla.
+
+-----------------------------------------------añadidura de boto-------------------------------------
+### **Documentación para la implementación de un botón fijo en la esquina inferior derecha**
+
+---
+
+#### **Objetivo**
+Implementar un botón que permita regresar al inicio de la página y que esté fijo en la esquina inferior derecha, acompañando al usuario al momento de hacer scroll hacia abajo.
+
+---
+
+#### **Pasos para la Implementación**
+
+##### **1. Estructura del HTML**
+El botón debe añadirse al archivo HTML con la siguiente estructura. Este botón tiene una clase para estilizarlo con CSS y un atributo `onclick` que redirige al inicio de la página:
+
+```html
+<button class="btn-inicio" onclick="location.href='#inicio'">Volver al Inicio</button>
+```
+
+- **Clase CSS (`btn-inicio`)**: Se utiliza para definir el diseño y posicionamiento del botón.
+- **Evento `onclick`**: Redirige al identificador `#inicio`, que debe corresponder a la sección inicial de la página.
+
+---
+
+##### **2. Estilo con CSS**
+El diseño del botón se realiza mediante CSS. Se pueden usar tres métodos, pero se recomienda incluir el estilo en un archivo CSS externo (`estilos.css`) para mantener el código ordenado.
+
+###### **Código CSS**
+```css
+.btn-inicio {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #004a8f; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Esquinas redondeadas */
+    cursor: pointer; /* Manito en hover */
+    font-size: 16px; /* Tamaño de la fuente */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para realzar */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animaciones */
+    z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
+}
+
+.btn-inicio:hover {
+    background-color: #0066cc; /* Color al pasar el mouse */
+    transform: scale(1.1); /* Agrandamiento en hover */
+}
+```
+
+###### **Archivo CSS Externo**
+Guarda el código anterior en un archivo llamado `estilos.css` y enlázalo en tu archivo HTML de esta forma:
+
+```html
+<link rel="stylesheet" href="estilos.css">
+```
+
+Coloca esta línea dentro de la etiqueta `<head>` del archivo HTML.
+
+---
+
+##### **3. Comportamiento del Botón**
+El botón se posiciona en la esquina inferior derecha con `position: fixed`, lo que permite que siga visible mientras el usuario se desplaza por la página.
+
+- **Propiedades clave del CSS**:
+  - `bottom: 20px;` fija el botón a 20 píxeles del borde inferior.
+  - `right: 20px;` fija el botón a 20 píxeles del borde derecho.
+  - `z-index: 1000;` asegura que el botón esté visible encima de otros elementos.
+
+- **Animaciones:**
+  - `transition`: Hace que el color y el tamaño cambien suavemente al interactuar con el botón.
+  - `transform: scale(1.1);`: Aumenta ligeramente el tamaño al pasar el mouse.
+
+---
+
+#### **Posibles Errores**
+1. **El botón no aparece fijo:** Verifica que el `position: fixed` esté correctamente definido en el CSS.
+2. **El botón no redirige al inicio:** Asegúrate de que exista un identificador `id="inicio"` en tu página. Ejemplo:
+
+```html
+<div id="inicio">
+    <!-- Contenido de la sección inicial -->
+</div>
+```
+
+3. **El estilo no se aplica:** Confirma que el archivo CSS está correctamente enlazado en el HTML.
+
+---
+
+#### **Consideraciones Adicionales**
+- Si el archivo CSS no es una opción, puedes agregar el estilo directamente en el HTML dentro de la etiqueta `<style>`. Esto es útil para pruebas rápidas, pero no recomendado para proyectos a largo plazo.
+- Puedes personalizar los colores, las fuentes o el tamaño del botón según los requerimientos del diseño.
+
+---
+
+#### **Resultado Esperado**
+Un botón que:
+- Permanezca fijo en la esquina inferior derecha de la pantalla.
+- Permita regresar al inicio de la página al hacer clic.
+- Cambie de color y tamaño al interactuar con él.
+
+---
+
+

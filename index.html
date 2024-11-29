@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hotel Mi Cerro - Tu destino de paz y comodidad.">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="script.js" defer></script>
+
+    <title>Hotel Mi Cerro</title>
+</head>
+<body>
+<!-- Popup de autenticación -->
+<div class="auth-popup" id="authPopup">
+    <h2>Iniciar Sesión</h2>
+    <!-- Formulario para Usuario -->
+<form id="userAuthForm" method="GET" action="logins/login_usuario.php">
+    <input type="text" name="username" placeholder="Nombre de usuario" required>
+    <input type="password" name="password" placeholder="Contraseña" required>
+    <input type="submit" value="Iniciar sesión como Usuario">
+</form>
+
+<!-- Formulario para Administrador -->
+<form id="adminAuthForm" method="GET" action="logins/login_administrador.php">
+    <input type="text" name="username" placeholder="Nombre de administrador" required>
+    <input type="password" name="password" placeholder="Contraseña" required>
+    <input type="submit" value="Iniciar sesión como Administrador">
+</form>
+<p id="authMessage"></p>
+<p>¿No tienes una cuenta? <a href="#" id="registerLink">Regístrate aquí</a></p>
+</div>
+
+<!-- Formulario de registro de usuario -->
+<div class="auth-popup" id="registerPopup" style="display: none;">
+    <h2>Registro de Usuario</h2>
+    <form id="registerForm" method="POST" action="logins/registro.php">
+        <label for="regNombre">Nombre:</label>
+        <input type="text" id="regNombre" name="regNombre" placeholder="Nombre" required>
+
+        <label for="regApellido">Apellido:</label>
+        <input type="text" id="regApellido" name="regApellido" placeholder="Apellido" required>
+
+        <label for="regEmail">Correo Electrónico:</label>
+        <input type="email" id="regEmail" name="regEmail" placeholder="Correo Electrónico" required>
+
+        <label for="regPassword">Contraseña:</label>
+        <input type="password" id="regPassword" name="regPassword" placeholder="Contraseña" required>
+
+        <button type="submit">Registrar</button>
+        <p id="regMessage"></p>
+        <p>¿Ya tienes una cuenta? <a href="#" id="loginLink">Inicia Sesión aquí</a></p>
+    </form>
+</div>
+
+<!-- Encabezado y menú de navegación -->
+<header id="barra">
+    <h1>Hotel Mi Cerro</h1>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Bienvenidos</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#precios">Precios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<!-- Sección de Bienvenida -->
+<main>
+    <section id="inicio">
+        <h2>Nuestras Instalaciones</h2>
+        <p>
+            ¡Bienvenido a un refugio donde la naturaleza y la calidez del hogar se entrelazan en perfecta armonía! Aquí, en nuestro encantador destino, te invitamos a disfrutar de una experiencia inolvidable rodeado de la majestuosa belleza del Nevado del Tolima.</p> <p> Cada mañana, despierta con la suavidad de los dulces amaneceres que pintan el cielo de colores vibrantes, llenando tu día de energía y positividad.</p>
+
+        <p>A medida que el sol se oculta en el horizonte, prepárate para ser testigo de apasionados atardeceres que transforman el paisaje en un espectáculo visual, creando el ambiente perfecto para compartir momentos especiales con tus seres queridos.</p> <p>Ya sea que elijas relajarte en la tranquilidad de la naturaleza o aventurarte en actividades al aire libre, aquí encontrarás la oportunidad de crear recuerdos inolvidables.
+        
+        Imagina disfrutar de una caminata por senderos rodeados de flora y fauna, explorando los secretos que la naturaleza tiene para ofrecer.</p> <p>O simplemente, relájate en una acogedora terraza con una taza de café, mientras contemplas la majestuosidad del Nevado del Tolima.</p> <p>Cada rincón de nuestro hogar está diseñado para que te sientas cómodo y en paz, brindándote la oportunidad de desconectar del ajetreo diario y reconectar con lo que realmente importa: la familia, los amigos y el amor.</p>
+        
+        <p>Ven y vive momentos únicos en pareja, donde cada instante se convierte en una celebración de la conexión y la complicidad. O, si lo prefieres, disfruta de la compañía de tu familia, creando lazos más fuertes mientras exploran juntos este paraíso natural.
+        
+        Te invitamos a que hagas de este lugar tu hogar lejos de casa, donde cada visita se convierte en una nueva aventura y cada despedida deja un deseo de volver.</p> <p>¡Esperamos darte la bienvenida pronto y compartir contigo la magia que aquí se vive!
+
+        </p>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios">
+        <h2>Servicios</h2>
+        <ul>
+            <li>Habitaciones de lujo con vistas al nevado y cascadas.</li>
+            <li>Termales relajantes.</li>
+            <li>Restaurante gourmet con comida tolimense.</li>
+            <li>Salones para eventos y conferencias.</li>
+        </ul>
+    </section>
+
+    <!-- Sección de Galería -->
+    <section id="galeria">  
+        <h2>Galería</h2>
+        <p>Explora imágenes de nuestras instalaciones:</p>
+        <div class="galeria">
+            <div class="galeria-objeto">
+                <p>Habitaciones con vista al nevado</p>
+                <img src="galeria/Habitacionconnevado.jpg" alt="Habitaciones de lujo" width="300">
+            </div>
+            <div class="galeria-objeto">
+                <p>Termales</p>
+                <img src="galeria/termal.jpg" alt="Termales relajantes" width="300">
+            </div>
+            <div class="galeria-objeto">
+                <p>Comida Tolimense</p>
+                <img src="galeria/comida tolimense.jpg" alt="Comida tolimense" width="300">
+            </div>
+            <div class="galeria-objeto">
+                <p>Salón para eventos</p>
+                <img src="galeria/salon comunal.jpg" alt="Salón comunal" width="300">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección de Precios de Habitaciones -->
+    <section id="precios">
+        <h1>Precios de Habitaciones</h1>
+        <table class="tabla-precios">
+            <thead>
+                <tr>
+                    <th>Tipo de Habitación</th>
+                    <th>Número de Personas</th>
+                    <th>Precio por Noche</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Habitación Individual</td>
+                    <td>1</td>
+                    <td>$50.000</td>
+                </tr>
+                <tr>
+                    <td>Habitación Doble</td>
+                    <td>2</td>
+                    <td>$90.000</td>
+                </tr>
+                <tr>
+                    <td>Habitación Familiar</td>
+                    <td>4</td>
+                    <td>$150.000</td>
+                </tr>
+                <tr>
+                    <td>Suite</td>
+                    <td>2</td>
+                    <td>$200.000</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Sección de Precios de Comida -->
+    <section id="precios-comida">
+        <h1>Precios de Comida</h1>
+        <table class="tabla-precios">
+            <thead>
+                <tr>
+                    <th>Tipo de Comida</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tamal</td>
+                    <td>$9.000</td>
+                </tr>
+                <tr>
+                    <td>Lechona</td>
+                    <td>$15.000</td>
+                </tr>
+                <tr>
+                    <td>Viudo de Pescado</td>
+                    <td>$35.000</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Sección de Precios de Entrada a Termales -->
+    <section id="precios-termales">
+        <h1>Precios de Entrada a Termales</h1>
+        <table class="tabla-precios">
+            <thead>
+                <tr>
+                    <th>Edad</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Niño</td>
+                    <td>$15.000</td>
+                </tr>
+                <tr>
+                    <td>Adulto</td>
+                    <td>$20.000</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Sección de Precios de Alquiler del Salón -->
+    <section id="precios-salon">
+        <h1>Precios de Alquiler del Salón</h1>
+        <table class="tabla-precios">
+            <thead>
+                <tr>
+                    <th>Tipo de Categoría</th>
+                    <th>Jornada</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Categoría A</td>
+                    <td>Media Jornada</td>
+                    <td>$55.600</td>
+                </tr>
+                <tr>
+                    <td>Categoría A</td>
+                    <td>Jornada Completa</td>
+                    <td>$111.200</td>
+                </tr>
+                <tr>
+                    <td>Categoría B y C</td>
+                    <td>Media Jornada</td>
+                    <td>$63.500</td>
+                </tr>
+                <tr>
+                    <td>Categoría B y C</td>
+                    <td>Jornada Completa</td>
+                    <td>$127.100</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <button class="btn-inicio" onclick="location.href='#barra'">Inicio</button>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>¿Tienes alguna pregunta o deseas hacer una reserva? Contáctanos:</p>
+        <p><strong>Correo:</strong> <a href="mailto:reservas@hotelMicerro.com">reservas@hotelMicerro.com</a></p>
+        <p><strong>Teléfono:</strong> <a href="tel:+1234567890">123-456-7890</a></p>
+        <p><strong>Dirección:</strong> Clle lomas turbado #123, Ibagué</p>
+    </section>
+</main>
+
+<!-- Pie de página -->
+<footer>
+    <p>&copy; 2024 Hotel Mi Cerro. Todos los derechos reservados.</p>
+    <p>
+        Síguenos en nuestras redes sociales: 
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a> | 
+        <a href="https://www.instagram.com" target="_blank">Instagram</a> | 
+        <a href="https://www.twitter.com" target="_blank">Twitter</a>
+    </p>
+</footer>
+</body>
+</html>
