@@ -47,7 +47,7 @@
 <script>
     function validarFormulario() {
         // Aquí puedes agregar validaciones adicionales si es necesario
-        return true; // Cambia esto según la validación
+        return true; // Cambia esto según la validación n
     }
 </script>
 </body>
